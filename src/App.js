@@ -1,24 +1,21 @@
 import React from 'react';
-import { makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import { fade, makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import EtudiBar from '../src/Components/EtudiBar';
+import Welcome from '../src/Components/Welcome';
+
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: '#c1eff4',
-      main: '#b2ebf2',
-      dark: '#7ca4a9',
+      light: '#ceeef0',
+      main: '#a9d2d5',
+      dark: '#808d8e',
       contrastText: '#000',
     },
     secondary: {
-      light: '#aa90d7',
-      main: '#9575cd',
-      dark: '#68518f',
+      light: '#a3a5c3',
+      main: '#947eb0',
+      dark: '#766c7f',
       contrastText: '#fff',
     },
   }
@@ -35,6 +32,55 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  image: {
+    width: 128,
+    height: 128,
+  },
+  img: {
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '100%',
+    maxHeight: '100%',
+  },
+  search: {
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: fade(theme.palette.common.white, 0.15),
+    '&:hover': {
+      backgroundColor: fade(theme.palette.common.white, 0.25),
+    },
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(1),
+      width: 'auto',
+    },
+  },
+  searchIcon: {
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inputRoot: {
+    color: 'inherit',
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: '12ch',
+      '&:focus': {
+        width: '20ch',
+      },
+    },
+  },
 }));
 
 function App() {
@@ -44,20 +90,9 @@ function App() {
   return (
     <div style={{flexGrow:1, height:'100%'}}>
        <ThemeProvider theme={theme}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              Etudi
-            </Typography>
-            <Button color="inherit">Home</Button>
-            <Button color="inherit">About</Button>
-            <Button color="inherit">Login</Button>
-          </Toolbar>
-        </AppBar>
-        </ThemeProvider>
+          <EtudiBar classes={classes}/>     
+          <Welcome classes={classes}/>
+      </ThemeProvider>
     </div>
   );
 }
