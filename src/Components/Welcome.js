@@ -42,19 +42,19 @@ function Welcome(props) {
                 <Grid container spacing={10} justify="center" alignItems="center">
                     <Grid item>
                         <Grid container direction="column" justify="center" alignItems="center">
-                            <IconButton size="medium"><SearchIcon style={{ fontSize: 50 }}/></IconButton>
+                            <IconButton size="medium"><SearchIcon className={classes.welcomeIcon}/></IconButton>
                             <Typography>Search</Typography>
                         </Grid>
                     </Grid>
                     <Grid item>
                         <Grid container direction="column" justify="center" alignItems="center">
-                            <IconButton size="medium"><NoteAdd style={{ fontSize: 50 }}/></IconButton>
+                            <IconButton size="medium"><NoteAdd className={classes.welcomeIcon}/></IconButton>
                             <Typography>Pin</Typography>
                         </Grid>
                     </Grid>
                     <Grid item>
                         <Grid container direction="column" justify="center" alignItems="center">
-                            <IconButton size="medium"><Forward style={{ fontSize: 50 }}/></IconButton>
+                            <IconButton size="medium"><Forward className={classes.welcomeIcon}/></IconButton>
                             <Typography>Share</Typography>
                         </Grid>
                     </Grid>

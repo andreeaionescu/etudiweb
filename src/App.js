@@ -32,6 +32,10 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  welcomeIcon: {
+    color: theme.palette.common.black,
+    fontSize: 50, 
+  },
   image: {
     width: 128,
     height: 128,
@@ -44,6 +48,9 @@ const useStyles = makeStyles((theme) => ({
   },
   search: {
     position: 'relative',
+    border: '2px',
+    borderStyle: 'solid',
+    borderColor: theme.palette.common.black,
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
     '&:hover': {
@@ -75,9 +82,9 @@ const useStyles = makeStyles((theme) => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      width: '12ch',
+      width: '50ch',
       '&:focus': {
-        width: '20ch',
+        width: '60ch',
       },
     },
   },
