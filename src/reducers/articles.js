@@ -11,7 +11,7 @@ const articles = (state = [], action) => {
         ]
       case 'PIN_ARTICLE':
         return state.map(article =>
-          article.id === action.id ? { ...article, pin: !article.pin } : article
+          article.id === action.id ? Object.assign({}, {id: article.id, pin: !article.pin}) : article
         )
       default:
         return state
