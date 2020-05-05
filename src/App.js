@@ -1,7 +1,7 @@
 import React from 'react';
 import { fade, makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import EtudiBar from '../src/Components/EtudiBar';
-import Welcome from '../src/Components/Welcome';
+import EtudiAppBar from './components/etudiAppBar';
+import Welcome from './containers/welcomeLogo';
 
 
 const theme = createMuiTheme({
@@ -97,7 +97,7 @@ function App() {
   return (
     <div style={{flexGrow:1, height:'100%'}}>
        <ThemeProvider theme={theme}>
-          <EtudiBar classes={classes}/>     
+          <EtudiAppBar classes={classes}/>     
           <Welcome classes={classes}/>
       </ThemeProvider>
     </div>

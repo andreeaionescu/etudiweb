@@ -2,10 +2,10 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import InputBase from '@material-ui/core/InputBase';
-import SearchIcon from '@material-ui/icons/Search';
-import NoteAdd from '@material-ui/icons/NoteAddOutlined';
-import Forward from '@material-ui/icons/ForwardOutlined';
+import Search from '@material-ui/icons/Search';
+import NoteAddOutlined from '@material-ui/icons/NoteAddOutlined';
+import ForwardOutlined from '@material-ui/icons/ForwardOutlined';
+import SearchBar from './../components/searchBar.js';
 
 function Welcome(props) {
 
@@ -24,37 +24,25 @@ function Welcome(props) {
                 </Grid>
             </Grid>
             <Grid item>
-            <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
+                <SearchBar classes={classes}/>
             </Grid>
             <Grid item>
                 <Grid container spacing={10} justify="center" alignItems="center">
                     <Grid item>
                         <Grid container direction="column" justify="center" alignItems="center">
-                            <IconButton size="medium"><SearchIcon className={classes.welcomeIcon}/></IconButton>
+                            <IconButton size="medium"><Search className={classes.welcomeIcon}/></IconButton>
                             <Typography>Search</Typography>
                         </Grid>
                     </Grid>
                     <Grid item>
                         <Grid container direction="column" justify="center" alignItems="center">
-                            <IconButton size="medium"><NoteAdd className={classes.welcomeIcon}/></IconButton>
+                            <IconButton size="medium"><NoteAddOutlined className={classes.welcomeIcon}/></IconButton>
                             <Typography>Pin</Typography>
                         </Grid>
                     </Grid>
                     <Grid item>
                         <Grid container direction="column" justify="center" alignItems="center">
-                            <IconButton size="medium"><Forward className={classes.welcomeIcon}/></IconButton>
+                            <IconButton size="medium"><ForwardOutlined className={classes.welcomeIcon}/></IconButton>
                             <Typography>Share</Typography>
                         </Grid>
                     </Grid>

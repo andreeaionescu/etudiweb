@@ -4,7 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
-function EtudiBar(props) {
+function EtudiAppBar(props) {
 
     const classes = props.classes
 
@@ -22,4 +22,4 @@ function EtudiBar(props) {
     )
 }
 
-export default EtudiBar;
+export default EtudiAppBar;
