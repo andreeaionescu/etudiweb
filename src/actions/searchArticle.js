@@ -1,5 +1,5 @@
-
-import store from "../store";
+import axios from 'axios';
+import store from '../store';
 
 export const searchArticles = text => ({
   type: 'SEARCH_ARTICLES',
@@ -11,18 +11,27 @@ export const receiveArticles = articles => ({
   data: articles
 })
 
+export const receiveError = err => ({
+  type: 'RECEIVE_ERROR',
+  err
+})
+
 export const fetchArticlesActionCreator = text => {
   store.dispatch(searchArticles(text));
   console.log(text)
   return function(dispatch, getState) {
-    return fetch(`https://api.github.com/users/${text}`)
-      .then(data => data.json())
+    return axios.post('https://localhost:8888/pubmed/', {'search': text})
       .then(data => {
-        if (data.message === "Not Found") {
-          throw new Error("No data found!!");
+        console.log(data) 
+        data.json()
+      }
+      )
+      .then(data => {
+        if (data.message === 'Not Found') {
+          throw new Error('No data found!!');
         } 
         else dispatch(receiveArticles(data));
       })
-      .catch(err => dispatch(receive_error()));
+      .catch(err => dispatch(receiveError(data)));
   };
 };
