@@ -6,7 +6,7 @@ import Search from '@material-ui/icons/Search';
 import NoteAddOutlined from '@material-ui/icons/NoteAddOutlined';
 import ForwardOutlined from '@material-ui/icons/ForwardOutlined';
 import { connect } from 'react-redux'
-import searchArticle from './../actions/searchArticle';
+import { fetchArticlesActionCreator} from './../actions/searchArticle';
 import SimpleLogo from './../components/simpleLogo';
 import SearchBar from './../components/searchBar';
 
@@ -57,7 +57,7 @@ class Welcome extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-    handleSearchArticle: value => dispatch(searchArticle(value))
+    handleSearchArticle: value => dispatch(fetchArticlesActionCreator(value))
 })
 
 export default connect(null, mapDispatchToProps)(Welcome)

@@ -1,6 +1,8 @@
 import React from 'react';
 import InputBase from '@material-ui/core/InputBase';
-import Search from '@material-ui/icons/Search';
+import IconButton from '@material-ui/core/IconButton'
+import SearchIcon from '@material-ui/icons/Search';
+
 
 class SearchBar extends React.Component {
 
@@ -19,8 +21,7 @@ class SearchBar extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     if (this.state.searchText !== ''){
-        console.log(this.state.searchText)
-        // this.props.handleSearch(this.state.searchText)
+        this.props.handleSearch(this.state.searchText)
     }
   }
 
@@ -29,18 +30,17 @@ class SearchBar extends React.Component {
 
       return (
           <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <Search />
-              </div>
               <InputBase
                 placeholder="Search…"
                 classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
+                  input: classes.searchInput,
                 }}
                 inputProps={{ 'aria-label': 'search' }}
                 onChange={this.handleChange}
               />
+              <IconButton type="submit" className={classes.searchIconButton} aria-label="search" onClick={this.handleSubmit}>
+                <SearchIcon />
+              </IconButton>
             </div>
       )
   }
