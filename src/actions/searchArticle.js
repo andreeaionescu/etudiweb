@@ -1,5 +1,6 @@
-import axios from 'axios';
 import store from '../store';
+
+const URL = 'http://localhost:8888/pubmed'
 
 export const searchArticles = text => ({
   type: 'SEARCH_ARTICLES',
@@ -18,20 +19,25 @@ export const receiveError = err => ({
 
 export const fetchArticlesActionCreator = text => {
   store.dispatch(searchArticles(text));
-  console.log(text)
+  console.log('Searching for the following topic: ', text)
   return function(dispatch, getState) {
-    return axios.post('https://localhost:8888/pubmed/', {'search': text})
-      .then(data => {
-        console.log(data) 
-        data.json()
-      }
-      )
-      .then(data => {
-        if (data.message === 'Not Found') {
-          throw new Error('No data found!!');
-        } 
-        else dispatch(receiveArticles(data));
-      })
-      .catch(err => dispatch(receiveError(data)));
+    let headers = new Headers({'Content-Type': 'application/json'})
+  
+    let request = {
+      method: 'POST',
+      headers: headers,
+      url: URL,
+      body: JSON.stringify({'search': text}),
+      mode: 'cors'
+    }
+
+    return fetch(URL, request)
+    .then(response => response.json())
+    .then(data => {
+          console.log(data)
+          dispatch(receiveArticles(data))
+        })
+    .catch(err => dispatch(receiveError(err)));
+
   };
 };
