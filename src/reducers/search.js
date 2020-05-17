@@ -1,8 +1,9 @@
-const search = (state = {base: ''}, action) => {
+const search = (state = '', action) => {
     switch(action.type){
         case 'SEARCH_ARTICLES':
-            return Object.assign({}, state, {base: action.text})
+            return action.text
         default:
             return state
     }
 }
+export default search

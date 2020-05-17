@@ -6,18 +6,13 @@ import IconButton from '@material-ui/core/IconButton';
 import Search from '@material-ui/icons/Search';
 import NoteAddOutlined from '@material-ui/icons/NoteAddOutlined';
 import ForwardOutlined from '@material-ui/icons/ForwardOutlined';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { fetchArticlesActionCreator} from './../actions/searchArticle';
 import SimpleLogo from './../components/simpleLogo';
 import SearchBar from './../components/searchBar';
 import ArticlesDashboard from './articlesDashboard';
 
 class Welcome extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {searchText: ''};
-      }
 
     render(){
         const classes = this.props.classes;
@@ -29,7 +24,7 @@ class Welcome extends React.Component {
                         <SimpleLogo classes={classes}/>
                     </Grid>
                     <Grid item>
-                        <SearchBar classes={classes} handleSearch={this.props.handleSearchArticle}/>
+                        <SearchBar classes={classes} inputClass={classes.searchInput} handleSearchArticle={this.props.handleSearchArticle} searchText={this.props.search}/>
                     </Grid>
                     <Grid item>
                         <Grid container spacing={10} justify="center" alignItems="center">
@@ -57,15 +52,15 @@ class Welcome extends React.Component {
             )
         }
         else {
-            return <ArticlesDashboard articles={this.props.articles}/>
+            return <ArticlesDashboard classes={this.props.classes} articles={this.props.articles} handleSearchArticle={this.props.handleSearchArticle} searchText={this.props.search}/>
         }
     }
     
 }
 
 const mapStateToProps = (state) => {
-    return { articles: state.articles };
-  };
+    return { search: state.search, articles: state.articles };
+}
 
 const mapDispatchToProps = dispatch => ({
     handleSearchArticle: value => dispatch(fetchArticlesActionCreator(value))

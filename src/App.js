@@ -1,4 +1,5 @@
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
 import { fade, makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import EtudiAppBar from './components/etudiAppBar';
 import Welcome from './containers/welcomeLogo';
@@ -17,7 +18,10 @@ const theme = createMuiTheme({
       main: '#947eb0',
       dark: '#766c7f',
       contrastText: '#fff',
-    },
+    }
+  },
+  typography: {
+    fontFamily: 'Montserrat'
   }
 });
 
@@ -56,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
+    margin: theme.spacing(1.5),
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
@@ -69,6 +74,11 @@ const useStyles = makeStyles((theme) => ({
   },
   searchInput: {
     width: '50ch',
+    marginLeft: theme.spacing(1),
+    flex: 1,
+  },
+  spaciousSearchInput: {
+    width: '120ch',
     marginLeft: theme.spacing(1),
     flex: 1,
   },

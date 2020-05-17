@@ -8,7 +8,7 @@ class SearchBar extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {searchText: ''};
+    this.state = {searchText: this.props.searchText};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,22 +21,24 @@ class SearchBar extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     if (this.state.searchText !== ''){
-        this.props.handleSearch(this.state.searchText)
+        this.props.handleSearchArticle(this.state.searchText)
     }
   }
 
   render(){
       const classes = this.props.classes
+      const inputClass = this.props.inputClass
 
       return (
           <div className={classes.search}>
               <InputBase
                 placeholder="Search…"
                 classes={{
-                  input: classes.searchInput,
+                  input: inputClass 
                 }}
                 inputProps={{ 'aria-label': 'search' }}
                 onChange={this.handleChange}
+                value={this.state.searchText}
               />
               <IconButton type="submit" className={classes.searchIconButton} aria-label="search" onClick={this.handleSubmit}>
                 <SearchIcon />
