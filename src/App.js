@@ -1,7 +1,8 @@
 import React from 'react';
+import Grid from '@material-ui/core/Grid';
 import { fade, makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import EtudiBar from '../src/Components/EtudiBar';
-import Welcome from '../src/Components/Welcome';
+import EtudiAppBar from './components/etudiAppBar';
+import Welcome from './containers/welcomeLogo';
 
 
 const theme = createMuiTheme({
@@ -17,7 +18,10 @@ const theme = createMuiTheme({
       main: '#947eb0',
       dark: '#766c7f',
       contrastText: '#fff',
-    },
+    }
+  },
+  typography: {
+    fontFamily: 'Montserrat'
   }
 });
 
@@ -56,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
+    margin: theme.spacing(1.5),
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
@@ -63,31 +68,27 @@ const useStyles = makeStyles((theme) => ({
       width: 'auto',
     },
   },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+  searchIconButton: {
+    padding: theme.spacing(1),
+    marginLeft: theme.spacing(0.5)
   },
-  inputRoot: {
-    color: 'inherit',
+  searchInput: {
+    width: '50ch',
+    marginLeft: theme.spacing(1),
+    flex: 1,
   },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '50ch',
-      '&:focus': {
-        width: '60ch',
-      },
-    },
+  spaciousSearchInput: {
+    width: '120ch',
+    marginLeft: theme.spacing(1),
+    flex: 1,
   },
+  expandedArticle: {
+    padding: theme.spacing(2),
+  },
+  paginator: {
+    justifyContent: "center",
+    padding: "10px"
+  }
 }));
 
 function App() {
@@ -97,7 +98,7 @@ function App() {
   return (
     <div style={{flexGrow:1, height:'100%'}}>
        <ThemeProvider theme={theme}>
-          <EtudiBar classes={classes}/>     
+          <EtudiAppBar classes={classes}/>     
           <Welcome classes={classes}/>
       </ThemeProvider>
     </div>
