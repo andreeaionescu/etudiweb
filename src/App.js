@@ -82,6 +82,13 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(1),
     flex: 1,
   },
+  expandedArticle: {
+    padding: theme.spacing(2),
+  },
+  paginator: {
+    justifyContent: "center",
+    padding: "10px"
+  }
 }));
 
 function App() {
