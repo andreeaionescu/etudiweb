@@ -34,7 +34,7 @@ class ArticlesDashboard extends React.Component {
         return (
             <Container maxWidth="lg" style={{paddingTop: '2ch'}}>
                 <Paper elevation={3}>
-                    <Grid container direction="column" justify="space-between" alignItems="center">
+                    <Grid container direction="column" wrap="nowrap" justify="space-between" alignItems="center">
                         <Grid item>
                             <SearchBar classes={classes} inputClass={`${classes.searchInput} ${classes.spaciousSearchInput}`} handleSearchArticle={this.props.handleSearchArticle} searchText={this.props.search}/>
                         </Grid>

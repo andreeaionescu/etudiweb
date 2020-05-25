@@ -61,21 +61,23 @@ export function ArticleFull(props) {
     console.log(props.article)
 
     return (
-        <Grid container direction="column" spacing={2} className={props.classes.expandedArticle}>
+        <Grid container direction="column" wrap="nowrap" spacing={2} className={props.classes.expandedArticle}>
             <Grid item>
                 <Typography variant="overline">{props.article.Journal.Title + ', ' + props.article.Journal.PublicationDetails}</Typography>
                 <Typography variant="h4" dangerouslySetInnerHTML={{__html: props.article.Title}}></Typography>
                 <Typography variant="caption">{_.join(props.article.Authors, ', ')}</Typography>
             </Grid>
             <Grid item>
-                <Typography variant="body1" >Abstract</Typography>
+                <Typography variant="h6">Abstract</Typography>
                 <Typography variant="body1" dangerouslySetInnerHTML={{__html: props.article.Abstract}}></Typography>
             </Grid>
+            {props.article.Keywords.length != 0 && 
+                <Grid item>
+                    <Typography variant="body1" display="inline" style={{fontWeight: 800}}>Keywords: </Typography>
+                    <Typography variant="body1" display="inline">{_.join(props.article.Keywords[0], '; ')}</Typography>
+                </Grid>}
             <Grid item>
-                <Typography variant="body1" >{`Keywords: ${props.searchText} ${props.article.Keywords}`}</Typography>
-            </Grid>
-            <Grid item>
-                <Typography variant="body1" >{`Copyright: ${props.article.Copyright}`}</Typography>
+                <Typography variant="body1" >{props.article.Copyright}</Typography>
             </Grid>
             <Grid item>
                 <IconButton aria-label="pmc.com" onClick={() => window.open(`https://www.ncbi.nlm.nih.gov/pmc/articles/PMC${props.article.pmc_id}/`, "_blank")}>
@@ -90,21 +92,23 @@ export function ArticleFull(props) {
 export function ArticleBasis(props) {
 
     return (
-        <Grid container direction="column" spacing={2} className={props.classes.expandedArticle}>
+        <Grid container direction="column" wrap="nowrap" spacing={2} className={props.classes.expandedArticle}>
             <Grid item>
                 <Typography variant="overline">{props.article.Journal.Title + ', ' + props.article.Journal.PublicationDetails}</Typography>
                 <Typography variant="h4" dangerouslySetInnerHTML={{__html: props.article.Title}}></Typography>
                 <Typography variant="caption">{_.join(props.article.Authors, ', ')}</Typography>
             </Grid>
             <Grid item>
-                <Typography variant="body1" >Abstract</Typography>
+                <Typography variant="h6">Abstract</Typography>
                 <Typography variant="body1" dangerouslySetInnerHTML={{__html: props.article.Abstract}}></Typography>
             </Grid>
+            {props.article.Keywords.length != 0 && 
+                <Grid item>
+                    <Typography variant="body1" display="inline" style={{fontWeight: 800}}>Keywords: </Typography>
+                    <Typography variant="body1" display="inline">{_.join(props.article.Keywords[0], '; ')}</Typography>
+                </Grid>}
             <Grid item>
-                <Typography variant="body1" >{`Keywords: ${props.searchText} ${props.article.Keywords}`}</Typography>
-            </Grid>
-            <Grid item>
-                <Typography variant="body1" >{`Copyright: ${props.article.Copyright}`}</Typography>
+                <Typography variant="body1" >{props.article.Copyright}</Typography>
             </Grid>
             <Grid item>
                 <Typography variant="body1" >No full text available.</Typography>
