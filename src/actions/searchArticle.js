@@ -12,6 +12,11 @@ export const receiveArticles = articles => ({
   data: articles
 })
 
+export const retrieveFullTextById = data => ({
+  type: 'RETRIEVE_FULL_TEXT',
+  data
+})
+
 export const receiveError = err => ({
   type: 'RECEIVE_ERROR',
   err
@@ -19,7 +24,7 @@ export const receiveError = err => ({
 
 export const fetchArticlesActionCreator = text => {
   store.dispatch(searchArticles(text));
-  console.log('Searching for the following topic: ', text)
+  console.log('Searching for the following topic:', text)
   return function(dispatch, getState) {
     let headers = new Headers({'Content-Type': 'application/json'})
   
@@ -34,8 +39,30 @@ export const fetchArticlesActionCreator = text => {
     return fetch(URL, request)
     .then(response => response.json())
     .then(data => {
-          console.log(data)
           dispatch(receiveArticles(data))
+        })
+    .catch(err => dispatch(receiveError(err)));
+
+  };
+};
+
+export const fetchFullTextByIdActionCreator = pubmed_id => {
+  console.log('Retrieveing article full text by pubmed_id:', pubmed_id)
+  return function(dispatch, getState) {
+    let headers = new Headers({'Content-Type': 'application/json'})
+  
+    let request = {
+      method: 'POST',
+      headers: headers,
+      url: URL + `/${pubmed_id}`,
+      body: JSON.stringify({'id': pubmed_id}),
+      mode: 'cors'
+    }
+
+    return fetch(URL + `/${pubmed_id}`, request)
+    .then(response => response.json())
+    .then(data => {
+          dispatch(retrieveFullTextById(data))
         })
     .catch(err => dispatch(receiveError(err)));
 
