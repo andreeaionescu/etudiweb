@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import _ from 'lodash';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -6,8 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Search from '@material-ui/icons/Search';
 import NoteAddOutlined from '@material-ui/icons/NoteAddOutlined';
 import ForwardOutlined from '@material-ui/icons/ForwardOutlined';
-import { connect } from 'react-redux';
-import { fetchArticlesActionCreator} from './../actions/searchArticle';
+import { fetchArticlesActionCreator } from './../actions/searchArticle';
 import SimpleLogo from './../components/simpleLogo';
 import SearchBar from './../components/searchBar';
 import ArticlesDashboard from './articlesDashboard';
@@ -52,7 +52,7 @@ class Welcome extends React.Component {
             )
         }
         else {
-            return <ArticlesDashboard classes={this.props.classes} articles={this.props.articles} handleSearchArticle={this.props.handleSearchArticle} searchText={this.props.search}/>
+            return <ArticlesDashboard classes={this.props.classes}/>
         }
     }
     
