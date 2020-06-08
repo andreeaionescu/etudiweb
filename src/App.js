@@ -25,7 +25,16 @@ const theme = createMuiTheme({
     h6: {
       "fontWeight": 800
     }
-  }
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+    },
+  },
 });
 
 
@@ -54,22 +63,11 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: '100%',
   },
   search: {
-    position: 'relative',
     border: '2px',
     borderStyle: 'solid',
     borderColor: theme.palette.common.black,
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
-    margin: theme.spacing(1.5),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(1),
-      width: 'auto',
-    },
+    margin: theme.spacing(1.5)
   },
   searchIconButton: {
     padding: theme.spacing(1),
@@ -78,12 +76,22 @@ const useStyles = makeStyles((theme) => ({
   searchInput: {
     width: '50ch',
     marginLeft: theme.spacing(1),
-    flex: 1,
   },
   spaciousSearchInput: {
-    width: '120ch',
     marginLeft: theme.spacing(1),
-    flex: 1,
+    width: '120ch',
+    [theme.breakpoints.up('xs')]: {
+      width: '35ch'
+    },
+    [theme.breakpoints.up('sm')]: {
+      width: '70ch'
+    },
+    [theme.breakpoints.up('md')]: {
+      width: '110ch'
+    },
+    [theme.breakpoints.up('lg')]: {
+      width: '150ch'
+    }
   },
   expandedArticle: {
     padding: theme.spacing(2),
