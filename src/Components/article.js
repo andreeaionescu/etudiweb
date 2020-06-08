@@ -95,7 +95,7 @@ export function ArticleFull(props) {
                             </Button>
                         </Tooltip>
                     </Grid>}
-                    {!_.isEmpty(props.article.ELocationID) && props.article.ELocationID.map(elink =>
+                    {!_.isEmpty(props.article.ELocationID) && props.article.ELocationID.map(elink => elink.EIdType == 'doi' &&
                         
                         <Grid item key={elink.EIdType}>
                             <Tooltip title={`Open full text via ${_.toUpper(elink.EIdType)}`} aria-label="add">
