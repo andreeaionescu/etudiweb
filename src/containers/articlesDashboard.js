@@ -14,6 +14,7 @@ class ArticlesDashboard extends React.Component {
         this.state = {expanded: '', page: 1}
         this.expandArticle = this.expandArticle.bind(this)
         this.handlePageChange = this.handlePageChange.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
     }
 
     async expandArticle(id){
@@ -24,6 +25,11 @@ class ArticlesDashboard extends React.Component {
     handlePageChange(event, value){
         this.setState(prevState  => ({expanded: prevState.expanded, page: value}))
     };
+
+    handleSearch(text){
+        this.setState({expanded: '', page: 1})
+        this.props.handleSearchArticle(text)
+    }
 
     render(){
         const classes = this.props.classes;
@@ -36,7 +42,7 @@ class ArticlesDashboard extends React.Component {
                 <Paper elevation={3}>
                     <Grid container direction="column" wrap="nowrap" justify="space-between" alignItems="center">
                         <Grid item>
-                            <SearchBar classes={classes} inputClass={`${classes.searchInput} ${classes.spaciousSearchInput}`} handleSearchArticle={this.props.handleSearchArticle} searchText={this.props.search}/>
+                            <SearchBar classes={classes} inputClass={`${classes.searchInput} ${classes.spaciousSearchInput}`} handleSearchArticle={this.handleSearch} searchText={this.props.search}/>
                         </Grid>
                             {this.state.expanded == '' ? 
                                 <Grid item>
