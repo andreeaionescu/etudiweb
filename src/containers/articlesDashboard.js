@@ -60,7 +60,7 @@ class ArticlesDashboard extends React.Component {
                                 </Grid>
                                 :
                                 <Grid item>
-                                    { this.props.articles[this.state.expanded].full_text 
+                                    { this.props.articles[this.state.expanded].full_text || !_.isEmpty(this.props.articles[this.state.expanded].ELocationID)
                                         ? <ArticleFull classes={classes} article={this.props.articles[this.state.expanded]}/>
                                         : <ArticleBasis classes={classes} article={this.props.articles[this.state.expanded]}/>
                                     }
