@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import { Grid, ListItem, ListItemIcon } from '@material-ui/core';
-import { IconButton, Checkbox } from '@material-ui/core';
+import { Button, Tooltip, Checkbox } from '@material-ui/core';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import Typography from '@material-ui/core/Typography';
 
@@ -59,7 +59,8 @@ export function ArticleListItem(props) {
 export function ArticleFull(props) {
 
     console.log(props.article)
-
+    const tooltip_title = `Open full text via ${props.article.pmc_id}`
+    
     return (
         <Grid container direction="column" wrap="nowrap" spacing={2} className={props.classes.expandedArticle}>
             <Grid item>
@@ -80,9 +81,37 @@ export function ArticleFull(props) {
                 <Typography variant="body1" >{props.article.Copyright}</Typography>
             </Grid>
             <Grid item>
-                <IconButton aria-label="pmc.com" onClick={() => window.open(`https://www.ncbi.nlm.nih.gov/pmc/articles/PMC${props.article.pmc_id}/`, "_blank")}>
-                    <OpenInNewIcon />
-                </IconButton>
+                <Grid container direction="row" justify="flex-end" alignItems="center" spacing={2}>
+                    { props.article.pmc_id &&
+                    <Grid item>
+                        <Tooltip title="Open full text via PMC" aria-label="add">
+                            <Button 
+                                variant="contained" 
+                                color="secondary" 
+                                endIcon={<OpenInNewIcon />}
+                                onClick={() => window.open(`https://www.ncbi.nlm.nih.gov/pmc/articles/PMC${props.article.pmc_id}/`, "_blank")}
+                            >
+                                FULL TEXT PMC
+                            </Button>
+                        </Tooltip>
+                    </Grid>}
+                    {!_.isEmpty(props.article.ELocationID) && props.article.ELocationID.map(elink => elink.EIdType == 'doi' &&
+                        
+                        <Grid item key={elink.EIdType}>
+                            <Tooltip title={`Open full text via ${_.toUpper(elink.EIdType)}`} aria-label="add">
+                                <Button 
+                                    variant="contained" 
+                                    color="secondary" 
+                                    endIcon={<OpenInNewIcon />}
+                                    onClick={() => window.open(elink.Link, "_blank")}
+                                >
+                                    FULL TEXT
+                                </Button>
+                            </Tooltip>
+                        </Grid>
+                        
+                        )}
+                </Grid>
             </Grid>
         </Grid>
     )

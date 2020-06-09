@@ -2,6 +2,7 @@ import React from 'react';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton'
 import SearchIcon from '@material-ui/icons/Search';
+import Grid from '@material-ui/core/Grid';
 
 class SearchBar extends React.Component {
 
@@ -29,7 +30,7 @@ class SearchBar extends React.Component {
       const inputClass = this.props.inputClass
 
       return (
-          <div className={classes.search}>
+          <Grid item className={classes.search}>
               <InputBase
                 placeholder="Search…"
                 classes={{
@@ -42,7 +43,7 @@ class SearchBar extends React.Component {
               <IconButton type="submit" className={classes.searchIconButton} aria-label="search" onClick={this.handleSubmit}>
                 <SearchIcon />
               </IconButton>
-            </div>
+            </Grid>
       )
   }
 }
