@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-etudiweb-dev-135714-authRole",
+            "UnauthRoleArn": "arn:aws:iam::787354452713:role/amplify-etudiweb-dev-135714-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::787354452713:role/amplify-etudiweb-dev-135714-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-etudiweb-dev-135714-deployment",
+            "UnauthRoleName": "amplify-etudiweb-dev-135714-unauthRole",
+            "StackName": "amplify-etudiweb-dev-135714",
+            "StackId": "arn:aws:cloudformation:us-east-1:787354452713:stack/amplify-etudiweb-dev-135714/c55c5af0-b875-11ea-bea7-0a05dbc7583b",
+            "AmplifyAppId": "d12x3ux7nu3fim"
+        }
+    }
+}
