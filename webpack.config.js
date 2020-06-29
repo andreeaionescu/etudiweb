@@ -1,6 +1,15 @@
+const path = require("path")
+const webpack = require("webpack")
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
+    context: path.resolve(__dirname, "src"),
+    entry: ['./main.js'],
+    output: {
+      path: path.join(__dirname, "dist"),
+      filename: 'main.js'
+    },
     module: {
       rules: [
         {
@@ -35,10 +44,16 @@ module.exports = {
         }
       ]
     },
+    resolve: {
+      modules: [
+        "node_modules",
+        path.resolve(__dirname, "src")
+      ]
+    },
     plugins: [
+      // new BundleAnalyzerPlugin(),
       new HtmlWebPackPlugin({
-        template: "./index.html",
-        filename: "./index.html"
+        template: "./index.ejs"
       })
     ]
   };
