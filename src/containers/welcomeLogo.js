@@ -7,10 +7,10 @@ import IconButton from '@material-ui/core/IconButton';
 import Search from '@material-ui/icons/Search';
 import NoteAddOutlined from '@material-ui/icons/NoteAddOutlined';
 import ForwardOutlined from '@material-ui/icons/ForwardOutlined';
-import { fetchArticlesActionCreator } from './../actions/searchArticle';
-import SimpleLogo from './../components/simpleLogo';
-import SearchBar from './../components/searchBar';
-import ArticlesDashboard from './articlesDashboard';
+import { fetchArticlesActionCreator } from 'actions/searchArticle';
+import SimpleLogo from 'components/simpleLogo';
+import SearchBar from 'components/searchBar';
+import ArticlesDashboard from 'containers/articlesDashboard';
 
 class Welcome extends React.Component {
 
