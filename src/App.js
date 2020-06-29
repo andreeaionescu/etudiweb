@@ -1,8 +1,8 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import { fade, makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import EtudiAppBar from './components/etudiAppBar';
-import Welcome from './containers/welcomeLogo';
+import { makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import EtudiAppBar from 'components/etudiAppBar';
+import Welcome from 'containers/welcomeLogo';
+import LoginForm from 'containers/loginForm';
 
 
 const theme = createMuiTheme({
@@ -118,6 +118,7 @@ function App() {
        <ThemeProvider theme={theme}>
           <EtudiAppBar classes={classes}/>     
           <Welcome classes={classes}/>
+          {/* <LoginForm classes={classes}/> */}
       </ThemeProvider>
     </div>
   );
