@@ -1,8 +1,8 @@
 import React from 'react';
 import { Grid } from '@material-ui/core'
 import { Auth } from 'aws-amplify'
-import { Login, SignUp, ConfirmSignUp } from 'components/login';
-import SimpleLogo from 'components/simpleLogo';
+import { Login, SignUp, ConfirmSignUp } from './../components/login.js';
+import SimpleLogo from './../components/simpleLogo.js';
 
 class LoginForm extends React.Component {
 
