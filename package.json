@@ -5,14 +5,15 @@
   "author": "Andreea-Maria Ionescu",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production"
+    "start": "webpack && webpack-dev-server --open",
+    "build": "webpack"
   },
   "dependencies": {
     "@material-ui/core": "^4.9.12",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.53",
     "aws-amplify": "^3.0.18",
+    "copy-webpack-plugin": "^6.0.3",
     "html-loader": "^0.5.5",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

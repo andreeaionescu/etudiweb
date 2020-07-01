@@ -3,9 +3,9 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import { Grid, Box, Paper, Container, Divider, List} from '@material-ui/core';
 import Pagination from '@material-ui/lab/Pagination';
-import SearchBar from 'components/searchBar';
-import { ArticleListItem, ArticleFull, ArticleBasis } from 'components/article';
-import { fetchArticlesActionCreator, fetchFullTextByIdActionCreator } from 'actions/searchArticle';
+import SearchBar from './../components/searchBar';
+import { ArticleListItem, ArticleFull, ArticleBasis } from './../components/article';
+import { fetchArticlesActionCreator, fetchFullTextByIdActionCreator } from './../actions/searchArticle';
 
 class ArticlesDashboard extends React.Component {
 
