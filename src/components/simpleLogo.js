@@ -9,7 +9,7 @@ function SimpleLogo(props){
     return (
         <Grid container spacing={2} direction="column" justify="center" alignItems="center">
             <Grid item className={classes.image}>
-                <img className={classes.img} alt="complex" src="../../public/logo192.png" />
+                <img className={classes.img} alt="etudi-logo" src="./../logo.png" />
             </Grid>
             <Grid item>
                 <Typography variant="h5" gutterBottom>The collaboration network</Typography>

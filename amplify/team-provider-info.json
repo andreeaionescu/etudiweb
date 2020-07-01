@@ -10,6 +10,14 @@
             "StackName": "amplify-etudiweb-dev-135714",
             "StackId": "arn:aws:cloudformation:us-east-1:787354452713:stack/amplify-etudiweb-dev-135714/c55c5af0-b875-11ea-bea7-0a05dbc7583b",
             "AmplifyAppId": "d12x3ux7nu3fim"
+        },
+        "categories": {
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d12x3ux7nu3fim",
+                    "type": "cicd"
+                }
+            }
         }
     }
 }
