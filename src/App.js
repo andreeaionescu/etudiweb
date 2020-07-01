@@ -117,8 +117,8 @@ function App() {
     <div style={{flexGrow:1, height:'100%'}}>
        <ThemeProvider theme={theme}>
           <EtudiAppBar classes={classes}/>     
-          <Welcome classes={classes}/>
-          {/* <LoginForm classes={classes}/> */}
+          {/* <Welcome classes={classes}/> */}
+          <LoginForm classes={classes}/>
       </ThemeProvider>
     </div>
   );
