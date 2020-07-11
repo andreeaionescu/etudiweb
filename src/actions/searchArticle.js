@@ -1,6 +1,6 @@
 import store from '../store';
 
-const URL = 'http://localhost:8888/pubmed'
+const URL = 'https://wnisv4w9u0.execute-api.us-east-1.amazonaws.com/dev/pubmed'
 
 export const searchArticles = text => ({
   type: 'SEARCH_ARTICLES',
