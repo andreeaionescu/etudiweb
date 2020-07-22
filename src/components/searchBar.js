@@ -25,26 +25,42 @@ class SearchBar extends React.Component {
     }
   }
 
-  render(){
-      const classes = this.props.classes
-      const inputClass = this.props.inputClass
+  
 
-      return (
-          <Grid item className={classes.search}>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  input: inputClass 
-                }}
-                inputProps={{ 'aria-label': 'search' }}
-                onChange={this.handleChange}
-                value={this.state.searchText}
-              />
-              <IconButton type="submit" className={classes.searchIconButton} aria-label="search" onClick={this.handleSubmit}>
-                <SearchIcon />
-              </IconButton>
-            </Grid>
-      )
+	handleKeyDown = (e) => {
+		switch (e.keyCode) {
+		case 27: {
+      this.setState({searchText: ''});
+			break;
+		}
+		case 13: {
+      this.handleSubmit(e);
+			break;
+		}
+		}
+	}
+
+  render(){
+    const classes = this.props.classes
+    const inputClass = this.props.inputClass
+
+    return (
+        <Grid item className={classes.search}>
+            <InputBase
+              placeholder="Search…"
+              classes={{
+                input: inputClass 
+              }}
+              inputProps={{ 'aria-label': 'search' }}
+              onKeyDown={this.handleKeyDown}
+              onChange={this.handleChange}
+              value={this.state.searchText}
+            />
+            <IconButton type="submit" className={classes.searchIconButton} aria-label="search" onClick={this.handleSubmit}>
+              <SearchIcon />
+            </IconButton>
+          </Grid>
+    )
   }
 }
 
