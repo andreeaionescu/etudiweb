@@ -5,6 +5,16 @@ import Button from '@material-ui/core/Button';
 
 function EtudiAppBar(props) {
 
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickLoginOpen = () => {
+      setOpen(true);
+    };
+
+    const handleLoginClose = () => {
+      setOpen(false);
+    };
+
     const classes = props.classes
 
     return (
@@ -15,7 +25,7 @@ function EtudiAppBar(props) {
             </Typography>
             <Button color="inherit">Home</Button>
             <Button color="inherit">About</Button>
-            <Button variant="contained" color="secondary">Login</Button>
+            <Button variant="contained" color="secondary" onClick={handleClickLoginOpen}>Login</Button>
           </Toolbar>
         </AppBar>
     )
