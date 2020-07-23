@@ -4,7 +4,6 @@ import EtudiAppBar from 'components/etudiAppBar';
 import Welcome from 'containers/welcomeLogo';
 import LoginForm from 'containers/loginForm';
 
-
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -88,16 +87,16 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(1),
     width: '120ch',
     [theme.breakpoints.up('xs')]: {
-      width: '35ch'
+      width: '20ch'
     },
     [theme.breakpoints.up('sm')]: {
-      width: '70ch'
+      width: '60ch'
     },
     [theme.breakpoints.up('md')]: {
-      width: '110ch'
+      width: '80ch'
     },
     [theme.breakpoints.up('lg')]: {
-      width: '150ch'
+      width: '120ch'
     }
   },
   expandedArticle: {
