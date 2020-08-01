@@ -33,7 +33,7 @@ function Welcome(props: WelcomeProps) {
                     <SearchBar classes={classes} inputClass={classes.searchInput} handleSearchArticle={props.handleSearchArticle} searchText={props.search}/>
                 </Grid>
                 <Grid item>
-                    <Grid container spacing={9} justify="center" alignItems="center">
+                    <Grid container spacing={10} justify="center" alignItems="center">
                         <Grid item>
                             <Grid container direction="column" justify="center" alignItems="center">
                                 <IconButton size="medium"><Search className={classes.welcomeIcon}/></IconButton>
