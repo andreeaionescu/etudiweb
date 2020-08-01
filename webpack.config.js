@@ -18,6 +18,15 @@ module.exports = {
           loader: 'babel-loader',
           options: { babelrc: true }
         },
+        {
+          test: /\.ts(x?)$/,
+          exclude: /node_modules/,
+          use: [
+            {
+              loader: "ts-loader"
+            }
+          ]
+        },
         { 
           test: /\.html$/ , 
           exclude: /node_modules/,

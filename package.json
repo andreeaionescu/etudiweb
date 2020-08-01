@@ -1,8 +1,15 @@
 {
   "name": "etudi",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "author": "Andreea-Maria Ionescu",
+  "contributors": [
+    {
+      "name": "Aloysius Lip",
+      "email": "aloysius.lip@gmail.com",
+      "url": "https://github.com/theLAZYmd"
+    }
+  ],
   "main": "index.js",
   "scripts": {
     "start": "webpack && webpack-dev-server --open",
@@ -24,6 +31,8 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.158",
+    "@types/react-redux": "^7.1.9",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -40,6 +49,8 @@
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.84.0",
     "style-loader": "^0.23.1",
+    "ts-loader": "^8.0.2",
+    "typescript": "^3.9.7",
     "url-loader": "^1.1.2",
     "webpack": "^4.43.0",
     "webpack-bundle-analyzer": "^3.8.0",

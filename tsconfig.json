@@ -1,0 +1,46 @@
+{
+	"compilerOptions": {
+	  "target": "es5",
+	  "lib": [
+		"dom",
+		"dom.iterable",
+		"esnext"
+	  ],
+	  "outDir": "dist/",
+	  "allowJs": true,
+	  "checkJs": false,
+	  "skipLibCheck": true,
+	  "esModuleInterop": true,
+	  "allowSyntheticDefaultImports": true,
+	  "strict": true,
+	  "forceConsistentCasingInFileNames": true,
+	  "module": "esnext",
+	  "moduleResolution": "node",
+	  "resolveJsonModule": true,
+	  "strictNullChecks": false,
+	  "jsx": "react",
+	  "types": [
+		"node"
+	  ],
+	  "plugins": [
+		{
+		  "name": "typescript-plugin-css-modules"
+		},
+		{
+		  "name": "@babel/plugin-proposal-nullish-coalescing-operator"
+		}
+	  ],
+	  "isolatedModules": true
+	},
+	"include": [
+	  "src",
+	  "gui.js",
+	  "*.d.ts"
+	],
+	"exclude": [
+	  "node_modules/",
+	  "dist/",
+	  "*.js"
+	]
+  }
+  

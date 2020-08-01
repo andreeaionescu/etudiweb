@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import EtudiAppBar from 'components/etudiAppBar';
-import Welcome from 'containers/welcomeLogo';
+import Welcome from 'containers/welcomeLogo.tsx';
 import LoginForm from 'containers/loginForm';
 
 const theme = createMuiTheme({
