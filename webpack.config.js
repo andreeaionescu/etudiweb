@@ -10,6 +10,7 @@ module.exports = {
       path: path.join(__dirname, "dist"),
       filename: 'main.js'
     },
+    mode: 'development',
     resolve: {
       modules: [
         "node_modules/",
