@@ -1,11 +1,13 @@
-import React from 'react';
-import { AppBar, Toolbar } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import React, { useContext, useState } from 'react';
+import { AppBar, Toolbar, Typography, Button, Icon } from '@material-ui/core';
+import { Home, Info, Notifications, NotificationsActive } from '@material-ui/icons';
+import { ClassesContext } from '../contexts';
 
 function EtudiAppBar(props) {
+  
+    const classes = useContext(ClassesContext);
 
-    const classes = props.classes
+    const [notificationCount, setCount] = useState(0);
 
     return (
         <AppBar position="static">
@@ -13,12 +15,28 @@ function EtudiAppBar(props) {
             <Typography variant="h6" className={classes.title}>
               Welcome to Etudi!
             </Typography>
-            <Button color="inherit">Home</Button>
-            <Button color="inherit">About</Button>
-            <Button variant="contained" color="secondary">Login</Button>
+            <Button color="inherit" className={classes.barButton} >
+              <Home style={{ margin: '0 auto' }} />
+              Home
+            </Button>
+            <Button color="inherit" className={classes.barButton} >
+              <Info style={{ margin: '0 auto' }} />
+              About
+            </Button>
+            <Button color="inherit" className={classes.barButton} >
+              <Icon className='fa fa-thumbtack' style={{ margin: '0 auto' }} />
+              Pin boards
+            </Button>
+            <Button color="inherit" className={classes.barButton} >
+              {notificationCount ?
+                <Notifications style={{ margin: '0 auto' }} /> :
+                <NotificationsActive style={{ margin: '0 auto' }} />
+              }
+              Notifications
+            </Button>
           </Toolbar>
         </AppBar>
-    )
+    );
 }
 
 export default EtudiAppBar;

@@ -73,6 +73,11 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '100%',
     maxHeight: '100%',
   },
+  barButton: {
+    display: 'grid',
+    gridTemplateRows: 'auto auto',
+    justifyContent: 'center'
+  },
 
   /* Pin Section */
   option: {
@@ -167,7 +172,7 @@ function App() {
     <div style={{flexGrow:1, height:'100%'}}>
        <ThemeProvider theme={theme}>
          <ClassesContext.Provider value={classes}>            
-            <EtudiAppBar classes={classes}/>
+            <EtudiAppBar />
             <PinBoard />  
             <Welcome classes={classes}/>
             {/* <LoginForm classes={classes}/> */}

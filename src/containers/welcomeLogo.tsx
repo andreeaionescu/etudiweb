@@ -12,7 +12,7 @@ import SimpleLogo from '../components/simpleLogo.js';
 import SearchBar from '../components/searchBar'; // @ts-ignore
 import ArticlesDashboard from './articlesDashboard.js';
 
-interface WelcomeProps {    //TODO
+interface WelcomeProps {
     classes: { [key: string]: string }
     articles: any
     handleSearchArticle: (article: any) => Promise<void>
