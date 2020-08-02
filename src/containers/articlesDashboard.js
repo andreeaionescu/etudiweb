@@ -44,34 +44,34 @@ class ArticlesDashboard extends React.Component {
                         <Grid item>
                             <SearchBar classes={classes} inputClass={`${classes.searchInput} ${classes.spaciousSearchInput}`} handleSearchArticle={this.handleSearch} searchText={this.props.search}/>
                         </Grid>
-                            {this.state.expanded == '' ? 
-                                <Grid item>
-                                    <List>
-                                        {slicedArticleList.map(key => <ArticleListItem key={key} id={key} article={this.props.articles[key]} expandArticle={this.expandArticle} searchText={this.props.search}/>)}
-                                    </List>
-                                    <Divider />
-                                    <Box component="span">
-                                        <Pagination
-                                            count={noOfPages}
-                                            page={this.state.page}
-                                            onChange={this.handlePageChange}
-                                            defaultPage={1}
-                                            color="primary"
-                                            size="large"
-                                            showFirstButton
-                                            showLastButton
-                                            classes={{ ul: classes.paginator }}
-                                        />
-                                        </Box>
-                                </Grid>
-                                :
-                                <Grid item>
-                                    { this.props.articles[this.state.expanded].full_text || !_.isEmpty(this.props.articles[this.state.expanded].ELocationID)
-                                        ? <ArticleFull classes={classes} article={this.props.articles[this.state.expanded]}/>
-                                        : <ArticleBasis classes={classes} article={this.props.articles[this.state.expanded]}/>
-                                    }
-                                </Grid>
-                            }
+                        {this.state.expanded == '' ? 
+                            <Grid item>
+                                <List>
+                                    {slicedArticleList.map(key => <ArticleListItem key={key} id={key} article={this.props.articles[key]} expandArticle={this.expandArticle} searchText={this.props.search}/>)}
+                                </List>
+                                <Divider />
+                                <Box component="span">
+                                    <Pagination
+                                        count={noOfPages}
+                                        page={this.state.page}
+                                        onChange={this.handlePageChange}
+                                        defaultPage={1}
+                                        color="primary"
+                                        size="large"
+                                        showFirstButton
+                                        showLastButton
+                                        classes={{ ul: classes.paginator }}
+                                    />
+                                    </Box>
+                            </Grid>
+                            :
+                            <Grid item>
+                                { this.props.articles[this.state.expanded].full_text || !_.isEmpty(this.props.articles[this.state.expanded].ELocationID)
+                                    ? <ArticleFull classes={classes} article={this.props.articles[this.state.expanded]}/>
+                                    : <ArticleBasis classes={classes} article={this.props.articles[this.state.expanded]}/>
+                                }
+                            </Grid>
+                        }
                     </Grid>
                 </Paper>
             </Container>

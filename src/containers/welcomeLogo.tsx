@@ -13,7 +13,7 @@ import SearchBar from '../components/searchBar'; // @ts-ignore
 import ArticlesDashboard from './articlesDashboard.js';
 
 interface WelcomeProps {    //TODO
-    classes: any
+    classes: { [key: string]: string }
     articles: any
     handleSearchArticle: (article: any) => Promise<void>
     search: string
@@ -64,10 +64,10 @@ function Welcome(props: WelcomeProps) {
 
 const mapStateToProps = (state: { search: any, articles: any[] }) => {  //TODO
     return { search: state.search, articles: state.articles };
-}
+};
 
 const mapDispatchToProps = (dispatch: MapDispatchToProps<any, any>) => ({ //TODO
     handleSearchArticle: (value: any) => dispatch(fetchArticlesActionCreator(value))
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Welcome)

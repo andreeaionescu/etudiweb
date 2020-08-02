@@ -3,6 +3,8 @@ import { makeStyles, createMuiTheme, ThemeProvider } from '@material-ui/core/sty
 import EtudiAppBar from 'components/etudiAppBar';
 import Welcome from 'containers/welcomeLogo.tsx';
 import LoginForm from 'containers/loginForm';
+import PinBoard from './containers/pinBoard';
+import { ClassesContext } from './contexts';
 
 const theme = createMuiTheme({
   palette: {
@@ -30,6 +32,9 @@ const theme = createMuiTheme({
     },
     body1: {
       "fontSize": 14
+    },
+    subtitle1: {
+      fontWeight: 600
     }
   },
   breakpoints: {
@@ -68,6 +73,52 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '100%',
     maxHeight: '100%',
   },
+
+  /* Pin Section */
+  option: {
+    fontWeight: 600,
+    display: 'flex',
+    alignItems: 'center'
+  },
+  optionLabel: {
+    fontWeight: 300,
+    whiteSpace: 'nowrap',
+    display: 'flex',
+    alignItems: 'center'
+  },
+  divider: {
+    width: '100%',
+    height: '3px'
+  },
+  board: {
+    padding: '10px',
+    display: 'grid',
+    columnGap: '5vw',
+    rowGap: '10px',
+    gridTemplateColumns: 'repeat(3, 1fr)'
+  },
+  pin: {
+    border: '1px solid #000000',
+    borderRadius: '20px',
+    boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    boxSizing: 'border-box',
+    height: '100%',
+    overflow: 'hidden',
+    position: 'relative'
+  },
+  pinTitle: {
+    padding: '5px 10px',
+    fontWeight: 600,
+    display: 'grid',
+    gridTemplateColumns: 'auto 1fr auto',
+    textAlign: 'center',
+    borderRadius: '20px 20px 0px 0px'
+  },
+  list: {
+    margin: '0.5em 2px'
+  },
+
+  /* Articles section */
   search: {
     border: '2px',
     borderStyle: 'solid',
@@ -115,9 +166,12 @@ function App() {
   return (
     <div style={{flexGrow:1, height:'100%'}}>
        <ThemeProvider theme={theme}>
-          <EtudiAppBar classes={classes}/>     
-          <Welcome classes={classes}/>
-          {/* <LoginForm classes={classes}/> */}
+         <ClassesContext.Provider value={classes}>            
+            <EtudiAppBar classes={classes}/>
+            <PinBoard />  
+            <Welcome classes={classes}/>
+            {/* <LoginForm classes={classes}/> */}
+         </ClassesContext.Provider>
       </ThemeProvider>
     </div>
   );

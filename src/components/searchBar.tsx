@@ -8,7 +8,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 interface SearchBarProps {
   searchText: string
   handleSearchArticle: (s: string) => Promise<void>
-  classes: { [key: string]: string }  //TODO
+  classes: { [key: string]: string }
   inputClass: string
 }
 
@@ -64,7 +64,7 @@ export default function SearchBar(props: SearchBarProps) {
             onKeyDown={handleKeyDown}
             onChange={handleChange}
             value={searchText}
-            autoFocus
+            //autoFocus
           />
           <IconButton type="submit" className={classes.searchIconButton} aria-label="search" onClick={handleSubmit}>
             {isSearching ?
