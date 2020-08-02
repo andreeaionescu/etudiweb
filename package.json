@@ -12,7 +12,7 @@
   ],
   "main": "index.js",
   "scripts": {
-    "start": "webpack && webpack-dev-server --open",
+    "start": "webpack --display-error-details && webpack-dev-server --open",
     "build": "webpack"
   },
   "dependencies": {

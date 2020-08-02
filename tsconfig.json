@@ -11,6 +11,7 @@
 	  "checkJs": false,
 	  "skipLibCheck": true,
 	  "esModuleInterop": true,
+	  "sourceMap": true,
 	  "allowSyntheticDefaultImports": true,
 	  "strict": true,
 	  "forceConsistentCasingInFileNames": true,

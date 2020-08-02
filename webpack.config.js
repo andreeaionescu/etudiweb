@@ -10,6 +10,15 @@ module.exports = {
       path: path.join(__dirname, "dist"),
       filename: 'main.js'
     },
+    resolve: {
+      modules: [
+        "node_modules/",
+        path.resolve(__dirname, "src")
+      ],
+      extensions: [
+        '.ts', '.tsx', '.ejs', '.mjs', '.js', '.wasm', '.json', '.webpack.js', '.web.js'
+      ]
+    },
     module: {
       rules: [
         {
@@ -51,12 +60,6 @@ module.exports = {
             limit: 100000,
           },
         }
-      ]
-    },
-    resolve: {
-      modules: [
-        "node_modules",
-        path.resolve(__dirname, "src")
       ]
     },
     plugins: [

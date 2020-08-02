@@ -2,30 +2,30 @@ import store from '../store';
 
 const URL = 'https://wnisv4w9u0.execute-api.us-east-1.amazonaws.com/dev/pubmed'
 
-export const searchArticles = text => ({
+export const searchArticles = (text: string) => ({
   type: 'SEARCH_ARTICLES',
   text
 })
 
-export const receiveArticles = articles => ({
+export const receiveArticles = (articles: any[]) => ({  //TODO
   type: 'RECEIVE_ARTICLES',
   data: articles
 })
 
-export const retrieveFullTextById = data => ({
+export const retrieveFullTextById = (data: any) => ({ //TODO
   type: 'RETRIEVE_FULL_TEXT',
   data
 })
 
-export const receiveError = err => ({
+export const receiveError = (err: any) => ({  //TODO
   type: 'RECEIVE_ERROR',
   err
 })
 
-export const fetchArticlesActionCreator = text => {
+export const fetchArticlesActionCreator = (text: string) => {
   store.dispatch(searchArticles(text));
   console.log('Searching for the following topic:', text)
-  return function(dispatch, getState) {
+  return function(dispatch: (...args: any[]) => void, getState: () => void) {
     let headers = new Headers({'Content-Type': 'application/json'})
   
     let request = {
@@ -33,7 +33,7 @@ export const fetchArticlesActionCreator = text => {
       headers: headers,
       url: URL,
       body: JSON.stringify({'search': text}),
-      mode: 'cors'
+      mode: 'cors' as RequestMode
     }
 
     return fetch(URL, request)
@@ -46,17 +46,17 @@ export const fetchArticlesActionCreator = text => {
   };
 };
 
-export const fetchFullTextByIdActionCreator = pubmed_id => {
+export const fetchFullTextByIdActionCreator = (pubmed_id: string) => {
   console.log('Retrieveing article full text by pubmed_id:', pubmed_id)
-  return function(dispatch, getState) {
+  return function(dispatch: (...args: any[]) => void, getState?: () => void) {
     let headers = new Headers({'Content-Type': 'application/json'})
   
     let request = {
       method: 'POST',
       headers: headers,
-      url: URL + `/${pubmed_id}`,
+      url: `${URL}/${pubmed_id}`,
       body: JSON.stringify({'id': pubmed_id}),
-      mode: 'cors'
+      mode: 'cors' as RequestMode
     }
 
     return fetch(URL + `/${pubmed_id}`, request)

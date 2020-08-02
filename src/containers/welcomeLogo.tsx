@@ -7,9 +7,9 @@ import IconButton from '@material-ui/core/IconButton';
 import Search from '@material-ui/icons/Search';
 import NoteAddOutlined from '@material-ui/icons/NoteAddOutlined';
 import ForwardOutlined from '@material-ui/icons/ForwardOutlined';
-import { fetchArticlesActionCreator } from '../actions/searchArticle.js';
+import { fetchArticlesActionCreator } from '../actions/searchArticle';
 import SimpleLogo from '../components/simpleLogo.js';
-import SearchBar from '../components/searchBar.tsx'; // @ts-ignore
+import SearchBar from '../components/searchBar'; // @ts-ignore
 import ArticlesDashboard from './articlesDashboard.js';
 
 interface WelcomeProps {    //TODO

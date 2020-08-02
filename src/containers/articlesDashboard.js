@@ -5,7 +5,7 @@ import { Grid, Box, Paper, Container, Divider, List} from '@material-ui/core';
 import Pagination from '@material-ui/lab/Pagination';
 import SearchBar from './../components/searchBar.tsx';
 import { ArticleListItem, ArticleFull, ArticleBasis } from './../components/article.js';
-import { fetchArticlesActionCreator, fetchFullTextByIdActionCreator } from './../actions/searchArticle.js';
+import { fetchArticlesActionCreator, fetchFullTextByIdActionCreator } from './../actions/searchArticle.ts';
 
 class ArticlesDashboard extends React.Component {
 
