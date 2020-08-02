@@ -28,7 +28,7 @@ class ArticlesDashboard extends React.Component {
 
     handleSearch(text){
         this.setState({expanded: '', page: 1})
-        this.props.handleSearchArticle(text)
+        return this.props.handleSearchArticle(text)
     }
 
     render(){
